@@ -27,15 +27,15 @@ class CategoryController extends Controller
 
     public function categoryData(Request $request)
     {
-        $columns = array( 
+        $columns = array(
             0 =>'id',
             2 =>'name',
             3=> 'parent_id',
             4=> 'is_active',
         );
-        
+
         $totalData = Category::where('is_active', true)->count();
-        $totalFiltered = $totalData; 
+        $totalFiltered = $totalData;
 
         if($request->input('length') != -1)
             $limit = $request->input('length');
@@ -52,7 +52,7 @@ class CategoryController extends Controller
                         ->get();
         else
         {
-            $search = $request->input('search.value'); 
+            $search = $request->input('search.value');
             $categories =  Category::where([
                             ['name', 'LIKE', "%{$search}%"],
                             ['is_active', true]
@@ -89,7 +89,7 @@ class CategoryController extends Controller
                 $nestedData['stock_qty'] = $category->product()->where('is_active', true)->sum('qty');
                 $total_price = $category->product()->where('is_active', true)->sum(DB::raw('price * qty'));
                 $total_cost = $category->product()->where('is_active', true)->sum(DB::raw('cost * qty'));
-                
+
                 if(config('currency_position') == 'prefix')
                     $nestedData['stock_worth'] = config('currency').' '.$total_price.' / '.config('currency').' '.$total_cost;
                 else
@@ -107,7 +107,7 @@ class CategoryController extends Controller
                                 <li class="divider"></li>'.
                                 \Form::open(["route" => ["category.destroy", $category->id], "method" => "DELETE"] ).'
                                 <li>
-                                  <button type="submit" class="btn btn-link" onclick="return confirmDelete()"><i class="dripicons-trash"></i> '.trans("file.delete").'</button> 
+                                  <button type="submit" class="btn btn-link" onclick="return confirmDelete()"><i class="dripicons-trash"></i> '.trans("file.delete").'</button>
                                 </li>'.\Form::close().'
                             </ul>
                         </div>';
@@ -115,12 +115,12 @@ class CategoryController extends Controller
             }
         }
         $json_data = array(
-                    "draw"            => intval($request->input('draw')),  
-                    "recordsTotal"    => intval($totalData),  
-                    "recordsFiltered" => intval($totalFiltered), 
-                    "data"            => $data   
+                    "draw"            => intval($request->input('draw')),
+                    "recordsTotal"    => intval($totalData),
+                    "recordsFiltered" => intval($totalFiltered),
+                    "data"            => $data
                     );
-            
+
         echo json_encode($json_data);
     }
 
@@ -142,7 +142,7 @@ class CategoryController extends Controller
             $imageName = date("Ymdhis");
             $imageName = $imageName . '.' . $ext;
             $image->move('public/images/category', $imageName);
-            
+
             $lims_category_data['image'] = $imageName;
         }
         $lims_category_data['name'] = $request->name;

@@ -7,10 +7,10 @@
 <div class="alert alert-danger alert-dismissible text-center"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button><?php echo e($errors->first('image')); ?></div>
 <?php endif; ?>
 <?php if(session()->has('message')): ?>
-  <div class="alert alert-success alert-dismissible text-center"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button><?php echo e(session()->get('message')); ?></div> 
+  <div class="alert alert-success alert-dismissible text-center"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button><?php echo e(session()->get('message')); ?></div>
 <?php endif; ?>
 <?php if(session()->has('not_permitted')): ?>
-  <div class="alert alert-danger alert-dismissible text-center"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button><?php echo e(session()->get('not_permitted')); ?></div> 
+  <div class="alert alert-danger alert-dismissible text-center"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button><?php echo e(session()->get('not_permitted')); ?></div>
 <?php endif; ?>
 
 <section>
@@ -63,10 +63,10 @@
                     <label><?php echo e(trans('file.Parent Category')); ?></label>
                     <?php echo e(Form::select('parent_id', $lims_categories, null, ['class' => 'form-control','placeholder' => 'No Parent Category'])); ?>
 
-                </div> 
+                </div>
             </div>
-                           
-            <div class="form-group">       
+
+            <div class="form-group">
               <input type="submit" value="<?php echo e(trans('file.submit')); ?>" class="btn btn-primary">
             </div>
         </div>
@@ -108,8 +108,8 @@
                 </select>
             </div>
         </div>
-            
-        <div class="form-group">       
+
+        <div class="form-group">
             <input type="submit" value="<?php echo e(trans('file.submit')); ?>" class="btn btn-primary">
           </div>
         </div>
@@ -168,7 +168,7 @@
 
     var category_id = [];
     var user_verified = <?php echo json_encode(env('USER_VERIFIED')) ?>;
-    
+
     $.ajaxSetup({
         headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -178,7 +178,7 @@
           var url ="category/";
           var id = $(this).data('id').toString();
           url = url.concat(id).concat("/edit");
-          
+
           $.get(url, function(data){
             $("#editModal input[name='name']").val(data['name']);
             $("#editModal select[name='parent_id']").val(data['parent_id']);
@@ -240,7 +240,7 @@
         ],
         'select': { style: 'multi',  selector: 'td:first-child'},
         'lengthMenu': [[10, 25, 50, -1], [10, 25, 50, "All"]],
-        
+
         dom: '<"row"lfB>rtip',
         buttons: [
             {
@@ -311,4 +311,5 @@
 
 </script>
 <?php $__env->stopSection(); ?>
+
 <?php echo $__env->make('layout.main', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH D:\laragon\www\inventory\resources\views/category/create.blade.php ENDPATH**/ ?>
