@@ -902,6 +902,7 @@ section.pos-section{
 }
 
 @media all and (min-width:768px) {
+
 	.table-fixed thead, .table-fixed tbody, .table-fixed tr, .table-fixed td, .table-fixed th {
 	 	display: block;
 	}
@@ -914,6 +915,7 @@ section.pos-section{
 		float: left;
 		border-bottom-width: 0;
 	}
+
 }
 
 .btn-custom {
@@ -992,10 +994,27 @@ section.pos-section{
 	padding: 15px;
 }
 
+@media screen and (orientation: portrait){
+
+    .dt-buttons{
+        width: 100%;
+    }
+    .dataTables_filter, .dataTables_length{
+        width:50%
+    }
+    .btn-pos{
+        top:13px !important;
+    }
+}
+
 @media all and (min-width:576px){
+
 	.modal-dialog {
 		max-width: 800px;
 	}
+
+
+
 }
 
 .checkbox input[type="checkbox"] {

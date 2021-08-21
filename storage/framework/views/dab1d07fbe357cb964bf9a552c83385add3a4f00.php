@@ -1420,8 +1420,13 @@
       if ($(window).outerWidth() > 1199) {
           $('nav.side-navbar').removeClass('shrink');
       }
+
+      if ($(window).width() <700) {
+          $('nav.side-navbar').addClass('shrink');
+      }
       function myFunction() {
           setTimeout(showPage, 150);
+
       }
       function showPage() {
         document.getElementById("loader").style.display = "none";

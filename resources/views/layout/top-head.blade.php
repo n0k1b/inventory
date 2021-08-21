@@ -51,7 +51,7 @@
     <script type="text/javascript" src="<?php echo asset('public/vendor/bootstrap/js/bootstrap.min.js') ?>"></script>
     <script type="text/javascript" src="<?php echo asset('public/vendor/bootstrap-toggle/js/bootstrap-toggle.min.js') ?>"></script>
     <script type="text/javascript" src="<?php echo asset('public/vendor/bootstrap/js/bootstrap-select.min.js') ?>"></script>
-    <script type="text/javascript" src="<?php echo asset('public/vendor/keyboard/js/jquery.keyboard.js') ?>"></script>  
+    <script type="text/javascript" src="<?php echo asset('public/vendor/keyboard/js/jquery.keyboard.js') ?>"></script>
     <script type="text/javascript" src="<?php echo asset('public/vendor/keyboard/js/jquery.keyboard.extension-autocomplete.js') ?>"></script>
     <script type="text/javascript" src="<?php echo asset('public/js/grasp_mobile_progress_circle-1.0.0.min.js') ?>"></script>
     <script type="text/javascript" src="<?php echo asset('public/vendor/jquery.cookie/jquery.cookie.js') ?>">
@@ -66,7 +66,7 @@
     <script type="text/javascript" src="<?php echo asset('public/vendor/daterange/js/daterangepicker.min.js') ?>"></script>
     <script type="text/javascript" src="<?php echo asset('public/vendor/tinymce/js/tinymce/tinymce.min.js') ?>"></script>
     <script type="text/javascript" src="<?php echo asset('public/js/dropzone.js') ?>"></script>
-    
+
     <!-- table sorter js-->
     <script type="text/javascript" src="<?php echo asset('public/vendor/datatable/pdfmake.min.js') ?>"></script>
     <script type="text/javascript" src="<?php echo asset('public/vendor/datatable/vfs_fonts.js') ?>"></script>
@@ -82,16 +82,16 @@
     <script type="text/javascript" src="<?php echo asset('public/vendor/datatable/dataTables.checkboxes.min.js') ?>"></script>
     <script type="text/javascript" src="https://cdn.datatables.net/fixedheader/3.1.6/js/dataTables.fixedHeader.min.js"></script>
     <script type="text/javascript" src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script>
-    <script type="text/javascript" src="https://cdn.datatables.net/responsive/2.2.3/js/responsive.bootstrap.min.js"></script> 
+    <script type="text/javascript" src="https://cdn.datatables.net/responsive/2.2.3/js/responsive.bootstrap.min.js"></script>
     <!-- Custom stylesheet - for your changes-->
     <link rel="stylesheet" href="<?php echo asset('public/css/custom-'.$general_setting->theme) ?>" type="text/css" id="custom-style">
   </head>
   <body onload="myFunction()">
     <div id="loader"></div>
     <div class="pos-page">
-      
+
       <div style="display:none;" id="content" class="animate-bottom">
-          @yield('content')  
+          @yield('content')
       </div>
     </div>
 
@@ -106,7 +106,7 @@
                 <div class="modal-body">
                   <p class="italic"><small>{{trans('file.The field labels marked with * are required input fields')}}.</small></p>
                     {!! Form::open(['route' => 'expenses.store', 'method' => 'post']) !!}
-                    <?php 
+                    <?php
                       $lims_expense_category_list = DB::table('expense_categories')->where('is_active', true)->get();
                       if(Auth::user()->role_id > 2)
                         $lims_warehouse_list = DB::table('warehouses')->where([
@@ -116,7 +116,7 @@
                       else
                         $lims_warehouse_list = DB::table('warehouses')->where('is_active', true)->get();
                       $lims_account_list = \App\Account::where('is_active', true)->get();
-                    
+
                     ?>
                       <div class="row">
                         <div class="col-md-6 form-group">
@@ -164,7 +164,7 @@
             </div>
         </div>
       </div>
-      
+
     @yield('scripts')
     <script>
         if ('serviceWorker' in navigator ) {
@@ -181,8 +181,14 @@
     </script>
     <script type="text/javascript">
 
+
           function myFunction() {
+              alert('hello')
               setTimeout(showPage, 150);
+              if ($(window).width() < 700) {
+        $('.side-navbar').addClass('shrink');
+      }
+
           }
 
           function showPage() {

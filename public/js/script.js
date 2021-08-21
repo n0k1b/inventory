@@ -63,7 +63,7 @@ var Uploader = (function (window, document, Uploader) {
 
     function initializeDropZone() {
         console.log("initializeDropZone");
-    
+
         myDropzone = new Dropzone('div#imageUpload', {
             addRemoveLinks: true,
             autoProcessQueue: false,
@@ -120,7 +120,7 @@ var Uploader = (function (window, document, Uploader) {
                 } catch (error) {
                     console.log(error);
                 }
-                
+
             },
             successmultiple: function (file, response) {
                 console.log(file, response);
@@ -148,7 +148,7 @@ var Uploader = (function (window, document, Uploader) {
             $("#imageUpload>.dz-message").show();
         });
     }
-    
+
     obj.init = function() {
         validate();
         initializeDropZone();
@@ -161,5 +161,9 @@ var Uploader = (function (window, document, Uploader) {
 
 $(function(){
     Uploader.init();
+    if ($(window).width() < 700) {
+        $('.side-navbar').addClass('shrink');
+      }
+
 });
 
