@@ -469,7 +469,7 @@ a:focus,button:focus,.btn:focus {
 
 .form-control, .input-group-text, .bootstrap-select.form-control {
     background-color: #fdfdff;
-    border-color: #717175;
+    border-color: black;
 }
 
 .mce-panel {
@@ -497,7 +497,7 @@ div.ui-keyboard {
 }
 
 .ui-menu.ui-widget.ui-widget-content.ui-autocomplete.ui-front {
-	background: #FBFBFB;
+	background: #C30700;
 	width: 300px;
 	padding: 15px;
 	position: absolute !important;
@@ -556,7 +556,7 @@ a:hover {
 }
 
 .form-control:focus {
-	border: 1px solid #FBFBFB;
+	border: 1px solid black;
 	box-shadow: none;
 }
 
@@ -631,7 +631,7 @@ nav.navbar a.menu-btn {
 }
 
 nav.navbar a.menu-btn:hover {
-    background: #FBFBFB;
+    background: transparent;
     border: 1px solid #FBFBFB;
     color: #FFF;
 }
