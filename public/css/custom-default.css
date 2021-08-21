@@ -1004,9 +1004,10 @@ section.pos-section{
 
     .dt-buttons{
         width: 100%;
+        text-align: center;
     }
     .dataTables_filter, .dataTables_length{
-        width:50%
+        width:100%
     }
     .btn-pos{
         top:13px !important;
