@@ -1002,6 +1002,15 @@ section.pos-section{
 
 @media screen and (orientation: portrait){
 
+    @media all and (min-width:400px){
+
+
+        .dt-buttons{
+            left: 80px !important;
+        }
+
+    }
+
     .dt-buttons{
         width: 100%;
         text-align: center;
