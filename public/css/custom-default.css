@@ -170,14 +170,14 @@ a {
 }
 
 .page-item.active .page-link {
-    color: #fff;
+    color: black;
     background-color: #FBFBFB;
     border-color: #FBFBFB;
 }
 
 .page-link {
     padding: 0.5rem 0.75rem;
-    color: #FBFBFB;
+    color: black;
     background-color: #fff;
     border: 1px solid #ddd;
     font-size: 13px;
@@ -1014,6 +1014,12 @@ section.pos-section{
     }
     nav.navbar .nav-item a i{
         margin-right: 0px !important;
+    }
+    .dataTables_info, .dataTables_paginate {
+        width:100%
+    }
+    .pagination{
+        margin-bottom: 20px !important;
     }
 }
 
