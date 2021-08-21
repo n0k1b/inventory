@@ -1,18 +1,18 @@
  <?php $__env->startSection('content'); ?>
 <?php if(session()->has('create_message')): ?>
-    <div class="alert alert-success alert-dismissible text-center"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button><?php echo e(session()->get('create_message')); ?></div> 
+    <div class="alert alert-success alert-dismissible text-center"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button><?php echo e(session()->get('create_message')); ?></div>
 <?php endif; ?>
 <?php if(session()->has('edit_message')): ?>
-    <div class="alert alert-success alert-dismissible text-center"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button><?php echo e(session()->get('edit_message')); ?></div> 
+    <div class="alert alert-success alert-dismissible text-center"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button><?php echo e(session()->get('edit_message')); ?></div>
 <?php endif; ?>
 <?php if(session()->has('import_message')): ?>
-    <div class="alert alert-success alert-dismissible text-center"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button><?php echo e(session()->get('import_message')); ?></div> 
+    <div class="alert alert-success alert-dismissible text-center"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button><?php echo e(session()->get('import_message')); ?></div>
 <?php endif; ?>
 <?php if(session()->has('not_permitted')): ?>
-    <div class="alert alert-danger alert-dismissible text-center"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button><?php echo e(session()->get('not_permitted')); ?></div> 
+    <div class="alert alert-danger alert-dismissible text-center"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button><?php echo e(session()->get('not_permitted')); ?></div>
 <?php endif; ?>
 <?php if(session()->has('message')): ?>
-    <div class="alert alert-danger alert-dismissible text-center"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button><?php echo e(session()->get('message')); ?></div> 
+    <div class="alert alert-danger alert-dismissible text-center"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button><?php echo e(session()->get('message')); ?></div>
 <?php endif; ?>
 
 <section>
@@ -38,7 +38,7 @@
                     <th class="not-exported"><?php echo e(trans('file.action')); ?></th>
                 </tr>
             </thead>
-            
+
         </table>
     </div>
 </section>
@@ -70,7 +70,7 @@
                         <a href="public/sample_file/sample_products.csv" class="btn btn-info btn-block btn-md"><i class="dripicons-download"></i>  <?php echo e(trans('file.Download')); ?></a>
                     </div>
                 </div>
-           </div>           
+           </div>
             <?php echo e(Form::submit('Submit', ['class' => 'btn btn-primary'])); ?>
 
         </div>
@@ -111,7 +111,7 @@
                     </table>
                 </div>
             </div>
-                
+
             <h5 id="combo-header"></h5>
             <table class="table table-bordered table-hover item-list">
                 <thead>
@@ -155,14 +155,14 @@
     $( "#select_all" ).on( "change", function() {
         if ($(this).is(':checked')) {
             $("tbody input[type='checkbox']").prop('checked', true);
-        } 
+        }
         else {
             $("tbody input[type='checkbox']").prop('checked', false);
         }
     });
-    
+
     $(document).on("click", "tr.product-link td:not(:first-child, :last-child)", function() {
-        productDetails( $(this).parent().data('product'), $(this).parent().data('imagedata') );        
+        productDetails( $(this).parent().data('product'), $(this).parent().data('imagedata') );
     });
 
     $(document).on("click", ".view", function(){
@@ -202,7 +202,7 @@
                 slidertext = '<img src="public/images/product/'+product[17]+'" height="300" width="100%">';
             }
         }
-        
+
         $("#combo-header").text('');
         $("table.item-list thead").remove();
         $("table.item-list tbody").remove();
@@ -289,7 +289,7 @@
                 }
             });
         }
-        
+
         $('#product-content').html(htmltext);
         $('#slider-content').html(slidertext);
         $('#product-details').modal('show');
@@ -404,7 +404,7 @@
                             body: function ( data, row, column, node ) {
                                 if (column === 0 && (data.indexOf('<img src=') !== -1)) {
                                     var regex = /<img.*?src=['"](.*?)['"]/;
-                                    data = regex.exec(data)[1];                 
+                                    data = regex.exec(data)[1];
                                 }
                                 return data;
                             }
@@ -469,4 +469,5 @@
 
 </script>
 <?php $__env->stopSection(); ?>
+
 <?php echo $__env->make('layout.main', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH D:\laragon\www\inventory\resources\views/product/index.blade.php ENDPATH**/ ?>

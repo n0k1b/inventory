@@ -1,6 +1,6 @@
 @extends('layout.main') @section('content')
 @if(session()->has('not_permitted'))
-  <div class="alert alert-danger alert-dismissible text-center"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>{{ session()->get('not_permitted') }}</div> 
+  <div class="alert alert-danger alert-dismissible text-center"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>{{ session()->get('not_permitted') }}</div>
 @endif
 <section class="forms">
     <div class="container-fluid">
@@ -37,7 +37,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="row">  
+                                <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label>{{trans('file.Purchase Status')}}</label>
@@ -149,6 +149,20 @@
                                             </select>
                                         </div>
                                     </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label>
+                                                <strong>Purchase Date</strong>
+                                            </label>
+                                            <div class="input-group date" data-provide="datepicker">
+                                                <input type="text" name="purchase_date" class="form-control datepicker" >
+                                                <div class="input-group-addon">
+                                                    <span class="glyphicon glyphicon-th"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <label>
@@ -286,6 +300,17 @@ var temp_unit_operation_value = [];
 var rowindex;
 var customer_group_rate;
 var row_product_cost;
+$.fn.datepicker.defaults.format = "dd/mm/yyyy";
+// $.datepicker.formatDate( "yy-mm-dd", new Date( 2007, 1 - 1, 26 ) );
+// $.fn.datepicker.date = "10/06/2021";
+
+
+
+// $('.datepicker').datepicker({
+//     dateFormat: 'yy-mm-dd'
+
+// });
+
 
 $('.selectpicker').selectpicker({
     style: 'btn-link',
@@ -331,7 +356,7 @@ var lims_product_code = [
     @endforeach
         <?php
         echo  '"'.implode('","', $productArray).'"';
-        ?> 
+        ?>
 ];
 
     var lims_productcodeSearch = $('#lims_productcodeSearch');
@@ -344,7 +369,7 @@ var lims_product_code = [
         }));
     },
     response: function(event, ui) {
-        if (ui.content.length == 1) {
+        if (ui.content.length == 10) {
             var data = ui.content[0].value;
             $(this).autocomplete( "close" );
             productSearch(data);
@@ -528,7 +553,7 @@ function productSearch(data) {
                 rowindex = newRow.index();
                 calculateRowProductData(1);
             }
-            
+
         }
     });
 }
@@ -573,7 +598,7 @@ function calculateRowProductData(quantity) {
         var net_unit_cost = (100 / (100 + tax_rate[rowindex])) * sub_total_unit;
         var tax = (sub_total_unit - net_unit_cost) * quantity;
         var sub_total = sub_total_unit * quantity;
-    
+
         $('table.order-list tbody tr:nth-child(' + (rowindex + 1) + ')').find('td:nth-child(5)').text(net_unit_cost.toFixed(2));
         $('table.order-list tbody tr:nth-child(' + (rowindex + 1) + ')').find('.net_unit_cost').val(net_unit_cost.toFixed(2));
         $('table.order-list tbody tr:nth-child(' + (rowindex + 1) + ')').find('td:nth-child(7)').text(tax.toFixed(2));

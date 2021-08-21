@@ -52,7 +52,7 @@
           <div class="form-inner">
             <div class="logo"><span>{{$general_setting->site_title}}</span></div>
             @if(session()->has('delete_message'))
-            <div class="alert alert-danger alert-dismissible text-center"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>{{ session()->get('delete_message') }}</div> 
+            <div class="alert alert-danger alert-dismissible text-center"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>{{ session()->get('delete_message') }}</div>
             @endif
             <form method="POST" action="{{ route('login') }}" id="login-form">
               @csrf
@@ -65,7 +65,7 @@
                     </p>
                 @endif
               </div>
-              
+
               <div class="form-group-material">
                 <input id="login-password" type="password" name="password" required class="input-material" value="">
                 <label for="login-password" class="label-material">{{trans('file.Password')}}</label>
@@ -82,8 +82,8 @@
             <button type="submit" class="btn btn-info staff-btn">LogIn as Staff</button>
             <button type="submit" class="btn btn-dark customer-btn">LogIn as Customer</button>
             <br><br> -->
-            <a href="{{ route('password.request') }}" class="forgot-pass">{{trans('file.Forgot Password?')}}</a>
-            <p>{{trans('file.Do not have an account?')}}</p><a href="{{url('register')}}" class="signup">{{trans('file.Register')}}</a>
+            {{-- <a href="{{ route('password.request') }}" class="forgot-pass">{{trans('file.Forgot Password?')}}</a>
+            <p>{{trans('file.Do not have an account?')}}</p><a href="{{url('register')}}" class="signup">{{trans('file.Register')}}</a> --}}
           </div>
           <div class="copyrights text-center">
             <p>{{trans('file.Developed By')}} <span class="external">{{$general_setting->developed_by}}</span></p>

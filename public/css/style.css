@@ -1,4 +1,6 @@
-
+.side-navbar-wrapper{
+    background: white !important;
+}
 .logo-container{
     width: 100px;
 }

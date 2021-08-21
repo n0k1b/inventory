@@ -35,9 +35,9 @@
     <link rel="stylesheet" type="text/css" href="<?php echo asset('public/vendor/datatable/dataTables.bootstrap4.min.css') ?>">
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/fixedheader/3.1.6/css/fixedHeader.bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/responsive/2.2.3/css/responsive.bootstrap.min.css">
-    <link rel="stylesheet" href="<?php echo asset('public/css/style.default.css') ?>" id="theme-stylesheet" type="text/css">
+    <link rel="stylesheet" href="<?php echo asset('public/css/style.default.css?{{ time() }}') ?>" id="theme-stylesheet" type="text/css">
     <link rel="stylesheet" href="<?php echo asset('public/css/dropzone.css') ?>">
-    <link rel="stylesheet" href="<?php echo asset('public/css/style.css') ?>">
+    <link rel="stylesheet" href="<?php echo asset('public/css/style.css?{{ time() }}') ?>">
     <!-- Tweaks for older IEs--><!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
         <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
@@ -51,7 +51,7 @@
     <script type="text/javascript" src="<?php echo asset('public/vendor/bootstrap/js/bootstrap.min.js') ?>"></script>
     <script type="text/javascript" src="<?php echo asset('public/vendor/bootstrap-toggle/js/bootstrap-toggle.min.js') ?>"></script>
     <script type="text/javascript" src="<?php echo asset('public/vendor/bootstrap/js/bootstrap-select.min.js') ?>"></script>
-    <script type="text/javascript" src="<?php echo asset('public/vendor/keyboard/js/jquery.keyboard.js') ?>"></script>  
+    <script type="text/javascript" src="<?php echo asset('public/vendor/keyboard/js/jquery.keyboard.js') ?>"></script>
     <script type="text/javascript" src="<?php echo asset('public/vendor/keyboard/js/jquery.keyboard.extension-autocomplete.js') ?>"></script>
     <script type="text/javascript" src="<?php echo asset('public/js/grasp_mobile_progress_circle-1.0.0.min.js') ?>"></script>
     <script type="text/javascript" src="<?php echo asset('public/vendor/jquery.cookie/jquery.cookie.js') ?>">
@@ -66,7 +66,7 @@
     <script type="text/javascript" src="<?php echo asset('public/vendor/daterange/js/daterangepicker.min.js') ?>"></script>
     <script type="text/javascript" src="<?php echo asset('public/vendor/tinymce/js/tinymce/tinymce.min.js') ?>"></script>
     <script type="text/javascript" src="<?php echo asset('public/js/dropzone.js') ?>"></script>
-    
+
     <!-- table sorter js-->
     <script type="text/javascript" src="<?php echo asset('public/vendor/datatable/pdfmake.min.js') ?>"></script>
     <script type="text/javascript" src="<?php echo asset('public/vendor/datatable/vfs_fonts.js') ?>"></script>
@@ -82,20 +82,20 @@
     <script type="text/javascript" src="<?php echo asset('public/vendor/datatable/dataTables.checkboxes.min.js') ?>"></script>
     <script type="text/javascript" src="https://cdn.datatables.net/fixedheader/3.1.6/js/dataTables.fixedHeader.min.js"></script>
     <script type="text/javascript" src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script>
-    <script type="text/javascript" src="https://cdn.datatables.net/responsive/2.2.3/js/responsive.bootstrap.min.js"></script> 
+    <script type="text/javascript" src="https://cdn.datatables.net/responsive/2.2.3/js/responsive.bootstrap.min.js"></script>
     <!-- Custom stylesheet - for your changes-->
-    <link rel="stylesheet" href="<?php echo asset('public/css/custom-'.$general_setting->theme) ?>" type="text/css" id="custom-style">
+    <link rel="stylesheet" href="<?php echo asset('public/css/custom-'.$general_setting->theme.'?'.time()) ?>" type="text/css" id="custom-style">
   </head>
-  
+
   <body onload="myFunction()">
     <div id="loader"></div>
       <!-- Side Navbar -->
       <nav class="side-navbar">
-        <div class="side-navbar-wrapper">
+        <div class="side-navbar-wrapper " style="background:white">
           <!-- Sidebar Header    -->
           <!-- Sidebar Navigation Menus-->
           <div class="main-menu">
-            <ul id="side-main-menu" class="side-menu list-unstyled">                  
+            <ul id="side-main-menu" class="side-menu list-unstyled">
               <li><a href="<?php echo e(url('/')); ?>"> <i class="dripicons-meter"></i><span><?php echo e(__('file.dashboard')); ?></span></a></li>
                <?php
                   $role = DB::table('roles')->find(Auth::user()->role_id);
@@ -136,7 +136,7 @@
                   <?php endif; ?>
                   <?php if($index_permission_active): ?>
                   <li id="product-list-menu"><a href="<?php echo e(route('products.index')); ?>"><?php echo e(__('file.product_list')); ?></a></li>
-                  <?php 
+                  <?php
                     $add_permission = DB::table('permissions')->where('name', 'products-add')->first();
                     $add_permission_active = DB::table('role_has_permissions')->where([
                         ['permission_id', $add_permission->id],
@@ -160,7 +160,7 @@
                 </ul>
               </li>
               <?php endif; ?>
-              <?php 
+              <?php
                 $index_permission = DB::table('permissions')->where('name', 'purchases-index')->first();
                   $index_permission_active = DB::table('role_has_permissions')->where([
                         ['permission_id', $index_permission->id],
@@ -171,7 +171,7 @@
               <li><a href="#purchase" aria-expanded="false" data-toggle="collapse"> <i class="dripicons-card"></i><span><?php echo e(trans('file.Purchase')); ?></span></a>
                 <ul id="purchase" class="collapse list-unstyled ">
                   <li id="purchase-list-menu"><a href="<?php echo e(route('purchases.index')); ?>"><?php echo e(trans('file.Purchase List')); ?></a></li>
-                  <?php 
+                  <?php
                     $add_permission = DB::table('permissions')->where('name', 'purchases-add')->first();
                     $add_permission_active = DB::table('role_has_permissions')->where([
                         ['permission_id', $add_permission->id],
@@ -185,7 +185,7 @@
                 </ul>
               </li>
               <?php endif; ?>
-              <?php 
+              <?php
                 $sale_index_permission = DB::table('permissions')->where('name', 'sales-index')->first();
                 $sale_index_permission_active = DB::table('role_has_permissions')->where([
                         ['permission_id', $sale_index_permission->id],
@@ -241,7 +241,7 @@
               </li>
               <?php endif; ?>
 
-              <?php 
+              <?php
                 $index_permission = DB::table('permissions')->where('name', 'expenses-index')->first();
                 $index_permission_active = DB::table('role_has_permissions')->where([
                         ['permission_id', $index_permission->id],
@@ -253,7 +253,7 @@
                 <ul id="expense" class="collapse list-unstyled ">
                   <li id="exp-cat-menu"><a href="<?php echo e(route('expense_categories.index')); ?>"><?php echo e(trans('file.Expense Category')); ?></a></li>
                   <li id="exp-list-menu"><a href="<?php echo e(route('expenses.index')); ?>"><?php echo e(trans('file.Expense List')); ?></a></li>
-                  <?php 
+                  <?php
                     $add_permission = DB::table('permissions')->where('name', 'expenses-add')->first();
                     $add_permission_active = DB::table('role_has_permissions')->where([
                         ['permission_id', $add_permission->id],
@@ -266,7 +266,7 @@
                 </ul>
               </li>
               <?php endif; ?>
-              <?php 
+              <?php
                 $index_permission = DB::table('permissions')->where('name', 'quotes-index')->first();
                 $index_permission_active = DB::table('role_has_permissions')->where([
                         ['permission_id', $index_permission->id],
@@ -277,7 +277,7 @@
               <li><a href="#quotation" aria-expanded="false" data-toggle="collapse"> <i class="dripicons-document"></i><span><?php echo e(trans('file.Quotation')); ?></span><span></a>
                 <ul id="quotation" class="collapse list-unstyled ">
                   <li id="quotation-list-menu"><a href="<?php echo e(route('quotations.index')); ?>"><?php echo e(trans('file.Quotation List')); ?></a></li>
-                  <?php 
+                  <?php
                     $add_permission = DB::table('permissions')->where('name', 'quotes-add')->first();
                     $add_permission_active = DB::table('role_has_permissions')->where([
                         ['permission_id', $add_permission->id],
@@ -290,7 +290,7 @@
                 </ul>
               </li>
               <?php endif; ?>
-              <?php 
+              <?php
                 $index_permission = DB::table('permissions')->where('name', 'transfers-index')->first();
                 $index_permission_active = DB::table('role_has_permissions')->where([
                         ['permission_id', $index_permission->id],
@@ -301,7 +301,7 @@
               <li><a href="#transfer" aria-expanded="false" data-toggle="collapse"> <i class="dripicons-export"></i><span><?php echo e(trans('file.Transfer')); ?></span></a>
                 <ul id="transfer" class="collapse list-unstyled ">
                   <li id="transfer-list-menu"><a href="<?php echo e(route('transfers.index')); ?>"><?php echo e(trans('file.Transfer List')); ?></a></li>
-                  <?php 
+                  <?php
                     $add_permission = DB::table('permissions')->where('name', 'transfers-add')->first();
                     $add_permission_active = DB::table('role_has_permissions')->where([
                         ['permission_id', $add_permission->id],
@@ -315,17 +315,17 @@
                 </ul>
               </li>
               <?php endif; ?>
-              
-              <?php 
+
+              <?php
                 $sale_return_index_permission = DB::table('permissions')->where('name', 'returns-index')->first();
-                
+
                 $sale_return_index_permission_active = DB::table('role_has_permissions')->where([
                         ['permission_id', $sale_return_index_permission->id],
                         ['role_id', $role->id]
                     ])->first();
-                
+
                 $purchase_return_index_permission = DB::table('permissions')->where('name', 'purchase-return-index')->first();
-                
+
                 $purchase_return_index_permission_active = DB::table('role_has_permissions')->where([
                             ['permission_id', $purchase_return_index_permission->id],
                             ['role_id', $role->id]
@@ -343,7 +343,7 @@
                 </ul>
               </li>
               <?php endif; ?>
-              <?php 
+              <?php
                 $index_permission = DB::table('permissions')->where('name', 'account-index')->first();
                 $index_permission_active = DB::table('role_has_permissions')->where([
                         ['permission_id', $index_permission->id],
@@ -388,7 +388,7 @@
                 </ul>
               </li>
               <?php endif; ?>
-              <?php 
+              <?php
                 $department = DB::table('permissions')->where('name', 'department')->first();
                 $department_active = DB::table('role_has_permissions')->where([
                         ['permission_id', $department->id],
@@ -430,8 +430,8 @@
                 </ul>
               </li>
               <?php endif; ?>
-              
-              <?php 
+
+              <?php
                   $user_index_permission_active = DB::table('permissions')
                       ->join('role_has_permissions', 'permissions.id', '=', 'role_has_permissions.permission_id')
                       ->where([
@@ -439,21 +439,21 @@
                         ['role_id', $role->id] ])->first();
 
                   $customer_index_permission = DB::table('permissions')->where('name', 'customers-index')->first();
-                  
+
                   $customer_index_permission_active = DB::table('role_has_permissions')->where([
                             ['permission_id', $customer_index_permission->id],
                             ['role_id', $role->id]
                         ])->first();
 
                   $biller_index_permission = DB::table('permissions')->where('name', 'billers-index')->first();
-                  
+
                   $biller_index_permission_active = DB::table('role_has_permissions')->where([
                             ['permission_id', $biller_index_permission->id],
                             ['role_id', $role->id]
                         ])->first();
 
                   $supplier_index_permission = DB::table('permissions')->where('name', 'suppliers-index')->first();
-                  
+
                   $supplier_index_permission_active = DB::table('role_has_permissions')->where([
                             ['permission_id', $supplier_index_permission->id],
                             ['role_id', $role->id]
@@ -462,7 +462,7 @@
               <?php if($user_index_permission_active || $customer_index_permission_active || $biller_index_permission_active || $supplier_index_permission_active): ?>
               <li><a href="#people" aria-expanded="false" data-toggle="collapse"> <i class="dripicons-user"></i><span><?php echo e(trans('file.People')); ?></span></a>
                 <ul id="people" class="collapse list-unstyled ">
-                  
+
                   <?php if($user_index_permission_active): ?>
                   <li id="user-list-menu"><a href="<?php echo e(route('user.index')); ?>"><?php echo e(trans('file.User List')); ?></a></li>
                   <?php $user_add_permission_active = DB::table('permissions')
@@ -475,10 +475,10 @@
                   <li id="user-create-menu"><a href="<?php echo e(route('user.create')); ?>"><?php echo e(trans('file.Add User')); ?></a></li>
                   <?php endif; ?>
                   <?php endif; ?>
-                  
+
                   <?php if($customer_index_permission_active): ?>
                   <li id="customer-list-menu"><a href="<?php echo e(route('customer.index')); ?>"><?php echo e(trans('file.Customer List')); ?></a></li>
-                  <?php 
+                  <?php
                     $customer_add_permission = DB::table('permissions')->where('name', 'customers-add')->first();
                     $customer_add_permission_active = DB::table('role_has_permissions')->where([
                         ['permission_id', $customer_add_permission->id],
@@ -489,10 +489,10 @@
                   <li id="customer-create-menu"><a href="<?php echo e(route('customer.create')); ?>"><?php echo e(trans('file.Add Customer')); ?></a></li>
                   <?php endif; ?>
                   <?php endif; ?>
-                  
+
                   <?php if($biller_index_permission_active): ?>
                   <li id="biller-list-menu"><a href="<?php echo e(route('biller.index')); ?>"><?php echo e(trans('file.Biller List')); ?></a></li>
-                  <?php 
+                  <?php
                     $biller_add_permission = DB::table('permissions')->where('name', 'billers-add')->first();
                     $biller_add_permission_active = DB::table('role_has_permissions')->where([
                         ['permission_id', $biller_add_permission->id],
@@ -503,10 +503,10 @@
                   <li id="biller-create-menu"><a href="<?php echo e(route('biller.create')); ?>"><?php echo e(trans('file.Add Biller')); ?></a></li>
                   <?php endif; ?>
                   <?php endif; ?>
-                  
+
                   <?php if($supplier_index_permission_active): ?>
                   <li id="supplier-list-menu"><a href="<?php echo e(route('supplier.index')); ?>"><?php echo e(trans('file.Supplier List')); ?></a></li>
-                  <?php 
+                  <?php
                     $supplier_add_permission = DB::table('permissions')->where('name', 'suppliers-add')->first();
                     $supplier_add_permission_active = DB::table('role_has_permissions')->where([
                         ['permission_id', $supplier_add_permission->id],
@@ -601,7 +601,7 @@
                 $supplier_report_active = DB::table('permissions')
                       ->join('role_has_permissions', 'permissions.id', '=', 'role_has_permissions.permission_id')
                       ->where([
-                        ['permissions.name', 'supplier-report'], 
+                        ['permissions.name', 'supplier-report'],
                         ['role_id', $role->id] ])->first();
                 $due_report_active = DB::table('permissions')
                       ->join('role_has_permissions', 'permissions.id', '=', 'role_has_permissions.permission_id')
@@ -739,7 +739,7 @@
                 </ul>
               </li>
               <?php endif; ?>
-              
+
               <li><a href="#setting" aria-expanded="false" data-toggle="collapse"> <i class="dripicons-gear"></i><span><?php echo e(trans('file.settings')); ?></span></a>
                 <ul id="setting" class="collapse list-unstyled ">
                   <?php
@@ -888,9 +888,9 @@
             <div class="navbar-holder d-flex align-items-center justify-content-between">
               <a id="toggle-btn" href="#" class="menu-btn"><i class="fa fa-bars"> </i></a>
               <span class="brand-big"><?php if($general_setting->site_logo): ?><img src="<?php echo e(url('public/logo', $general_setting->site_logo)); ?>" width="50">&nbsp;&nbsp;<?php endif; ?><a href="<?php echo e(url('/')); ?>"><h1 class="d-inline"><?php echo e($general_setting->site_title); ?></h1></a></span>
-              
+
               <ul class="nav-menu list-unstyled d-flex flex-md-row align-items-md-center">
-                <?php 
+                <?php
                   $add_permission = DB::table('permissions')->where('name', 'sales-add')->first();
                   $add_permission_active = DB::table('role_has_permissions')->where([
                       ['permission_id', $add_permission->id],
@@ -905,7 +905,7 @@
                 ?>
                 <?php if($add_permission_active): ?>
                 <li class="nav-item"><a class="dropdown-item btn-pos btn-sm" href="<?php echo e(route('sale.pos')); ?>"><i class="dripicons-shopping-bag"></i><span> POS</span></a></li>
-                <?php endif; ?>      
+                <?php endif; ?>
                 <li class="nav-item"><a id="btnFullscreen"><i class="dripicons-expand"></i></a></li>
                 <?php if(\Auth::user()->role_id <= 2): ?>
                   <li class="nav-item"><a href="<?php echo e(route('cashRegister.index')); ?>" title="<?php echo e(trans('file.Cash Register List')); ?>"><i class="dripicons-archive"></i></a></li>
@@ -988,7 +988,7 @@
                       </ul>
                 </li>
                 <?php if(Auth::user()->role_id != 5): ?>
-                <li class="nav-item"> 
+                <li class="nav-item">
                     <a class="dropdown-item" href="<?php echo e(url('read_me')); ?>" target="_blank"><i class="dripicons-information"></i> <?php echo e(trans('file.Help')); ?></a>
                 </li>
                 <?php endif; ?>
@@ -996,19 +996,19 @@
                   <a rel="nofollow" data-target="#" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-item"><i class="dripicons-user"></i> <span><?php echo e(ucfirst(Auth::user()->name)); ?></span> <i class="fa fa-angle-down"></i>
                   </a>
                   <ul class="dropdown-menu edit-options dropdown-menu-right dropdown-default" user="menu">
-                      <li> 
+                      <li>
                         <a href="<?php echo e(route('user.profile', ['id' => Auth::id()])); ?>"><i class="dripicons-user"></i> <?php echo e(trans('file.profile')); ?></a>
                       </li>
                       <?php if($general_setting_permission_active): ?>
-                      <li> 
+                      <li>
                         <a href="<?php echo e(route('setting.general')); ?>"><i class="dripicons-gear"></i> <?php echo e(trans('file.settings')); ?></a>
                       </li>
                       <?php endif; ?>
-                      <li> 
+                      <li>
                         <a href="<?php echo e(url('my-transactions/'.date('Y').'/'.date('m'))); ?>"><i class="dripicons-swap"></i> <?php echo e(trans('file.My Transaction')); ?></a>
                       </li>
                       <?php if(Auth::user()->role_id != 5): ?>
-                      <li> 
+                      <li>
                         <a href="<?php echo e(url('holidays/my-holiday/'.date('Y').'/'.date('m'))); ?>"><i class="dripicons-vibrate"></i> <?php echo e(trans('file.My Holiday')); ?></a>
                       </li>
                       <?php endif; ?>
@@ -1029,7 +1029,7 @@
                         </form>
                       </li>
                   </ul>
-                </li> 
+                </li>
               </ul>
             </div>
           </div>
@@ -1050,7 +1050,7 @@
                     <?php echo Form::open(['route' => 'notifications.store', 'method' => 'post']); ?>
 
                       <div class="row">
-                          <?php 
+                          <?php
                               $lims_user_list = DB::table('users')->where([
                                 ['is_active', true],
                                 ['id', '!=', \Auth::user()->id]
@@ -1091,7 +1091,7 @@
                   <p class="italic"><small><?php echo e(trans('file.The field labels marked with * are required input fields')); ?>.</small></p>
                     <?php echo Form::open(['route' => 'expenses.store', 'method' => 'post']); ?>
 
-                    <?php 
+                    <?php
                       $lims_expense_category_list = DB::table('expense_categories')->where('is_active', true)->get();
                       if(Auth::user()->role_id > 2)
                         $lims_warehouse_list = DB::table('warehouses')->where([
@@ -1101,7 +1101,7 @@
                       else
                         $lims_warehouse_list = DB::table('warehouses')->where('is_active', true)->get();
                       $lims_account_list = \App\Account::where('is_active', true)->get();
-                    
+
                     ?>
                       <div class="row">
                         <div class="col-md-6 form-group">
@@ -1249,7 +1249,7 @@
                   <p class="italic"><small><?php echo e(trans('file.The field labels marked with * are required input fields')); ?>.</small></p>
                     <?php echo Form::open(['route' => 'report.warehouse', 'method' => 'post']); ?>
 
-                    <?php 
+                    <?php
                       $lims_warehouse_list = DB::table('warehouses')->where('is_active', true)->get();
                     ?>
                       <div class="form-group">
@@ -1286,7 +1286,7 @@
                   <p class="italic"><small><?php echo e(trans('file.The field labels marked with * are required input fields')); ?>.</small></p>
                     <?php echo Form::open(['route' => 'report.user', 'method' => 'post']); ?>
 
-                    <?php 
+                    <?php
                       $lims_user_list = DB::table('users')->where('is_active', true)->get();
                     ?>
                       <div class="form-group">
@@ -1323,7 +1323,7 @@
                   <p class="italic"><small><?php echo e(trans('file.The field labels marked with * are required input fields')); ?>.</small></p>
                     <?php echo Form::open(['route' => 'report.customer', 'method' => 'post']); ?>
 
-                    <?php 
+                    <?php
                       $lims_customer_list = DB::table('customers')->where('is_active', true)->get();
                     ?>
                       <div class="form-group">
@@ -1360,7 +1360,7 @@
                   <p class="italic"><small><?php echo e(trans('file.The field labels marked with * are required input fields')); ?>.</small></p>
                     <?php echo Form::open(['route' => 'report.supplier', 'method' => 'post']); ?>
 
-                    <?php 
+                    <?php
                       $lims_supplier_list = DB::table('suppliers')->where('is_active', true)->get();
                     ?>
                       <div class="form-group">
@@ -1384,7 +1384,7 @@
             </div>
         </div>
       </div>
-      
+
       <div style="display:none" id="content" class="animate-bottom">
           <?php echo $__env->yieldContent('content'); ?>
       </div>
@@ -1414,7 +1414,7 @@
         }
     </script>
     <script type="text/javascript">
-      
+
       var alert_product = <?php echo json_encode($alert_product) ?>;
 
       if ($(window).outerWidth() > 1199) {
@@ -1442,7 +1442,7 @@
               $("span.notification-number").text(alert_product);
           });
       });
-      
+
       $("a#add-expense").click(function(e){
         e.preventDefault();
         $('#expense-modal').modal();
@@ -1529,4 +1529,5 @@
       });
     </script>
   </body>
-</html><?php /**PATH D:\laragon\www\inventory\resources\views/layout/main.blade.php ENDPATH**/ ?>
+</html>
+<?php /**PATH D:\laragon\www\inventory\resources\views/layout/main.blade.php ENDPATH**/ ?>

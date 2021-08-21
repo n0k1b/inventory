@@ -1,6 +1,6 @@
 @extends('layout.main') @section('content')
 @if(session()->has('not_permitted'))
-  <div class="alert alert-danger alert-dismissible text-center"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>{{ session()->get('not_permitted') }}</div> 
+  <div class="alert alert-danger alert-dismissible text-center"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>{{ session()->get('not_permitted') }}</div>
 @endif
 <section class="forms">
     <div class="container-fluid">
@@ -487,7 +487,7 @@ lims_productcodeSearch.autocomplete({
         }));
     },
     response: function(event, ui) {
-        if (ui.content.length == 1) {
+        if (ui.content.length == 10) {
             var data = ui.content[0].value;
             $(this).autocomplete( "close" );
             productSearch(data);
@@ -938,13 +938,13 @@ $('select[name="paid_by_id"]').on("change", function() {
         $(".card-element").show();
         $("#gift-card").hide();
         $("#cheque").hide();
-    } 
+    }
     else if (id == 4) {
         $("#cheque").show();
         $("#gift-card").hide();
         $(".card-element").hide();
         $('input[name="cheque_no"]').attr('required', true);
-    } 
+    }
     else {
         $("#gift-card").hide();
         $(".card-element").hide();

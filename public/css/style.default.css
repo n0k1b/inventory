@@ -59,7 +59,7 @@ i[class*='icon-'] {
 
 table {
     font-size: 0.9em;
-    color: #666;
+    color:black;
 }
 
 .btn-xs {
@@ -133,6 +133,7 @@ h2 {
     box-shadow: none;
 }
 
+
 .card-header h1,
 .card-header h2,
 .card-header h3,
@@ -140,6 +141,8 @@ h2 {
 .card-header h5,
 .card-header h6 {
     margin-bottom: 0;
+    color:black !important;
+    font-weight: 600 !important;
 }
 
 .card:not([class*="text"]) p {
@@ -194,11 +197,15 @@ nav.navbar .container-fluid {
 nav.navbar .navbar-holder {
     width: 100%;
 }
+.show i{
+    color:black !important;
+}
 
 nav.navbar a {
     font-size: 14px;
-    color: #303030;
+    color: #fff;
     line-height: 60px;
+    font-weight: bold;
     position: relative;
     padding: 0 3px;
 }
@@ -405,8 +412,8 @@ nav.navbar a.menu-btn i[class*='icon-'] {
 }
 
 .side-navbar li a i {
-    color: #7c5cc4;
-    font-size: 15px;
+    color: #C30700;
+    font-size: 20px;
     line-height: 10px;
     margin-right: 10px;
     width: 20px;
@@ -441,8 +448,8 @@ nav.navbar a.menu-btn i[class*='icon-'] {
 }
 
 .side-navbar li ul li a {
-    color: #7d7d7d;
-    font-size: 13px;
+    color: #000000;
+    font-size: 15px;
     line-height: 1.8;
     padding: 5px;
 }
@@ -556,8 +563,8 @@ nav.navbar a.menu-btn i[class*='icon-'] {
 }
 
 .dashboard-counts strong {
-    font-size: 0.9em;
-    font-weight: 500;
+    font-size: 20px !important;
+    font-weight: 600;
     color: #555;
     display: block;
 }
@@ -1276,6 +1283,7 @@ button {
 
 .forms label {
     font-size: 0.8rem;
+    color:black !important;
 }
 
 /* FORMS MEDIAQUERIES -------------------------- */
@@ -1483,8 +1491,8 @@ STYLE SWITCHER FOR DEMO
     color: #495057;
 }
 
-/* ========================================= 
-   THEMING OF BOOTSTRAP COMPONENTS           
+/* =========================================
+   THEMING OF BOOTSTRAP COMPONENTS
    ========================================= */
 /*
  * 1. NAVBAR
@@ -1888,7 +1896,7 @@ STYLE SWITCHER FOR DEMO
 .btn-default {
     color: color-yiq(#ced4da);
     background-color: #ced4da;
-    border-color: #7c5cc4;
+    border-color: #C30700;
 }
 
 .btn-default:hover {
@@ -2188,7 +2196,7 @@ STYLE SWITCHER FOR DEMO
 }
 
 /*
- * 3. TYPE  
+ * 3. TYPE
  */
 body {
     font-family: "Nunito", sans-serif;

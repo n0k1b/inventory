@@ -52,7 +52,7 @@
           <div class="form-inner">
             <div class="logo"><span><?php echo e($general_setting->site_title); ?></span></div>
             <?php if(session()->has('delete_message')): ?>
-            <div class="alert alert-danger alert-dismissible text-center"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button><?php echo e(session()->get('delete_message')); ?></div> 
+            <div class="alert alert-danger alert-dismissible text-center"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button><?php echo e(session()->get('delete_message')); ?></div>
             <?php endif; ?>
             <form method="POST" action="<?php echo e(route('login')); ?>" id="login-form">
               <?php echo csrf_field(); ?>
@@ -65,7 +65,7 @@
                     </p>
                 <?php endif; ?>
               </div>
-              
+
               <div class="form-group-material">
                 <input id="login-password" type="password" name="password" required class="input-material" value="">
                 <label for="login-password" class="label-material"><?php echo e(trans('file.Password')); ?></label>
@@ -82,8 +82,7 @@
             <button type="submit" class="btn btn-info staff-btn">LogIn as Staff</button>
             <button type="submit" class="btn btn-dark customer-btn">LogIn as Customer</button>
             <br><br> -->
-            <a href="<?php echo e(route('password.request')); ?>" class="forgot-pass"><?php echo e(trans('file.Forgot Password?')); ?></a>
-            <p><?php echo e(trans('file.Do not have an account?')); ?></p><a href="<?php echo e(url('register')); ?>" class="signup"><?php echo e(trans('file.Register')); ?></a>
+            
           </div>
           <div class="copyrights text-center">
             <p><?php echo e(trans('file.Developed By')); ?> <span class="external"><?php echo e($general_setting->developed_by); ?></span></p>
@@ -145,4 +144,5 @@
             $(this).siblings('.label-material').removeClass('active');
         }
     });
-</script><?php /**PATH D:\laragon\www\inventory\resources\views/auth/login.blade.php ENDPATH**/ ?>
+</script>
+<?php /**PATH D:\laragon\www\inventory\resources\views/auth/login.blade.php ENDPATH**/ ?>

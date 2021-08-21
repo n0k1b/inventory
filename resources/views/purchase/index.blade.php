@@ -1,9 +1,9 @@
 @extends('layout.main') @section('content')
 @if(session()->has('message'))
-  <div class="alert alert-success alert-dismissible text-center"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>{{ session()->get('message') }}</div> 
+  <div class="alert alert-success alert-dismissible text-center"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>{{ session()->get('message') }}</div>
 @endif
 @if(session()->has('not_permitted'))
-  <div class="alert alert-danger alert-dismissible text-center"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>{{ session()->get('not_permitted') }}</div> 
+  <div class="alert alert-danger alert-dismissible text-center"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>{{ session()->get('not_permitted') }}</div>
 @endif
 
 <section>
@@ -29,7 +29,7 @@
                     <th class="not-exported">{{trans('file.action')}}</th>
                 </tr>
             </thead>
-            
+
             <tfoot class="tfoot active">
                 <th></th>
                 <th>{{trans('file.Total')}}</th>
@@ -255,7 +255,7 @@
     var all_permission = <?php echo json_encode($all_permission) ?>;
     var purchase_id = [];
     var user_verified = <?php echo json_encode(env('USER_VERIFIED')) ?>;
-    
+
     $.ajaxSetup({
         headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -345,7 +345,7 @@
     });
 
     $(document).on("click", "table.payment-list .edit-btn", function(event) {
-        $(".edit-btn").attr('data-clicked', true);        
+        $(".edit-btn").attr('data-clicked', true);
         $(".card-element").hide();
         $("#edit-cheque").hide();
         $('#edit-payment select[name="edit_paid_by_id"]').prop('disabled', false);
@@ -382,7 +382,7 @@
         $('#view-payment').modal('hide');
     });
 
-    $('select[name="paid_by_id"]').on("change", function() {        
+    $('select[name="paid_by_id"]').on("change", function() {
         var id = $('select[name="paid_by_id"]').val();
         $('input[name="cheque_no"]').attr('required', false);
         $(".payment-form").off("submit");
@@ -416,7 +416,7 @@
         $(".change").text(parseFloat($('input[name="paying_amount"]').val() - $(this).val()).toFixed(2));
     });
 
-    $('select[name="edit_paid_by_id"]').on("change", function() {        
+    $('select[name="edit_paid_by_id"]').on("change", function() {
         var id = $('select[name="edit_paid_by_id"]').val();
         $('input[name="edit_cheque_no"]').attr('required', false);
         $(".payment-form").off("submit");
@@ -714,14 +714,14 @@
             $(".change").text(parseFloat( $('input[name="edit_paying_amount"]').val() - $('input[name="edit_amount"]').val() ).toFixed(2));
             e.preventDefault();
         }
-            
+
         $('#edit-payment select[name="edit_paid_by_id"]').prop('disabled', false);
     });
 
     if(all_permission.indexOf("purchases-delete") == -1)
         $('.buttons-delete').addClass('d-none');
 
-    
+
 </script>
 @endsection @section('scripts')
 <script type="text/javascript" src="https://js.stripe.com/v3/"></script>

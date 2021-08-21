@@ -89,10 +89,10 @@
     </div>
 </div> -->
 @if(session()->has('not_permitted'))
-  <div class="alert alert-danger alert-dismissible text-center"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>{{ session()->get('not_permitted') }}</div> 
+  <div class="alert alert-danger alert-dismissible text-center"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>{{ session()->get('not_permitted') }}</div>
 @endif
 @if(session()->has('message'))
-  <div class="alert alert-success alert-dismissible text-center"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>{{ session()->get('message') }}</div> 
+  <div class="alert alert-success alert-dismissible text-center"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>{{ session()->get('message') }}</div>
 @endif
       <div class="row">
         <div class="container-fluid">
@@ -189,7 +189,7 @@
             </div>
           </div>
         </div>
-        
+
         <div class="container-fluid">
           <div class="row">
             <div class="col-md-12">
@@ -452,7 +452,7 @@
           </div>
         </div>
       </section>
-      
+
 <script type="text/javascript">
     // Show and hide color-switcher
     $(".color-switcher .switcher-button").on('click', function() {

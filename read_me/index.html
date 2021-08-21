@@ -8,7 +8,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>SaleProPOS</title>
+    <title>XiT InventoryPOS</title>
     <meta name="description" content="">
     <meta name="author" content="LionCoders">
     <meta name="copyright" content="LionCoders">
@@ -33,13 +33,10 @@
 
 <body>
     <div id="documenter_sidebar">
-    	<img src="assets/images/logo.png" style="border: none;margin: 20px 20px 0;width: 180px">
+    	<!-- <img src="assets/images/logo.png" style="border: none;margin: 20px 20px 0;width: 180px"> -->
         <ul id="documenter_nav">
             <li><a class="current" href="#documenter_cover">Start</a></li>
-            <li><a href="#server_requirement" title="SERVER REQUIREMENTS">Server Requirements</a></li>
-            <li><a href="#install" title="INSTALL">Install</a></li>
-            <li><a href="#common-error" title="Common error">Common Error</a></li>
-            <li><a href="#update" title="SOFTWARE UPDATE">Software Update</a></li>
+
             <li><a href="#pos-printer" title="POS Printer Configuration">POS Printer Settings</a></li>
             <li><a href="#mail" title="SETUP MAIL SERVER">Setup Mail Server</a></li>
             <li><a href="#dashboard" title="DASHBOARD">Dashboard</a></li>
@@ -65,137 +62,20 @@
     </div>
     <div id="documenter_content">
         <section id="documenter_cover">
-            <h1>SalePro - Inventory Management System with POS, HRM, Accounting</h1>
+            <h1>XiT Inventory - Inventory Management System with POS, HRM, Accounting</h1>
             <div id="documenter_buttons">
             </div>
             <hr>
             <ul>
                 <li>by: LionCoders</li>
-                <li>email: <a href="mailto:hello@lion-coders.com">hello@lion-coders.com</a></li>
+                <li>email: <a href="mailto:hello@lion-coders.com">xitbangladesh@gmail.com</a></li>
             </ul>
-            <p>SaleProPOS is a software that will help you to manage your inventory, accounting and hrm. We believe that this software is suitable for both wholesale and retail buisness model and an ideal product for any Super Shop. This user friendly software is fully responsive and has many features. Hope that this software will be helpful to manage your buisness inventory.</p>
+            <p>XiT InventoryPOS is a software that will help you to manage your inventory, accounting and hrm. We believe that this software is suitable for both wholesale and retail buisness model and an ideal product for any Super Shop. This user friendly software is fully responsive and has many features. Hope that this software will be helpful to manage your buisness inventory.</p>
         </section>
-        <section id="server_requirement">
-            <div class="page-header">
-                <h3>SERVER REQUIREMENT</h3>
-                <hr class="notop">
-            </div>
-            <p>
-                All our products are designed on most popular PHP framework Laravel. You need to have minimum requirement for running all our application. Please make sure that you have completed these requirements.</p>
-            <ul>
-                <li>
-                    Preferred Server - Apache/Nginx</li>
-                <li><strong>PHP Version &gt;= 7.1</strong></li>
-                <li>OpenSSL PHP Extension&nbsp;</li>
-                <li>PDO PHP Extension&nbsp;</li>
-                <li>PHP Fileinfo Extension</li>
-                <li>Mbstring PHP Extension&nbsp;</li>
-                <li>Tokenizer PHP Extension&nbsp;</li>
-                <li>Zip Archive PHP Extension&nbsp;</li>
-                <li>Mod Rewrite Enabled</li>
-            </ul>
-            <p>
-                &nbsp;</p>
-            <p>
-                <strong>Please note if you try to install the application on any other server say LiteSpeed or IIS, you may get undesirable result. We do not recommend you to use other server than Apache or Nginx. Also we do not provide support for installation in server other than Apache.</strong></p>
-        </section>
-        <section id="install">
-            <div class="page-header">
-                <h3>INSTALL</h3>
-                <hr class="notop">
-            </div>
-            <p>
-                First Upload the <strong>salepropos.zip</strong> file to server. Then extract the zip file. Make sure that your server is showing hidden(.dot files) files.
-            </p>
-            <h2><strong>IMPORT Database</strong></h2>
-            <ul>
-                <li>
-                    After unziping the downloaded folder you will find a folder named <strong>dbBackup</strong>. Inside it you will find <strong>salepropos.sql</strong>.
-                </li>
-                <li>
-                    Create a database on your phpmyadmin and import <strong>salepropos.sql</strong> into the database.
-                </li>
-            </ul>
-            <h2><strong>Connect Database</strong></h2>
-            <ul>
-                <li>
-                    Open <strong>Salepropos</strong> folder. Find <strong>.env</strong> hidden file. Open with text editor.
-                </li>
-                <li>
-                    Change DB_DATABASE, DB_USERNAME, DB_PASSWORD with your database name, username and password.
-                </li>
-            </ul>
-            <img alt="" src="assets/images/update_env.png">
-            <p>After that login with username:<strong>admin</strong> password:<strong>admin</strong></p>
-            <br>
-            <h2>Installation Video</h2>
-            <p>Watch is a video demonstrating the steps stated above. (you'll need internet connection to play the video)</p>
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/w2ZwRPQzzvk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            <br><br>
-            <p>You can also watch this video on <a href="https://www.youtube.com/watch?v=w2ZwRPQzzvk">youtube</a></p>
-        </section>
-        <section id="common-error">
-            <div class="page-header">
-                <h3>Common Errors</h3>
-                <hr class="notop">
-            </div>
-            <ul>
-                <li>
-                    If you face 500 server error after installing the software please update your php version to 7.3 or later. If you still get 500 error after updating php version, please open your '.env' file and change the value of 'APP_DEBUG' to true. And then go to the page again where you were getting 500 server error. You should see description of actual error now. Please take a screenshot and send it over along with your cpanel access details, so that we can look into it.
-                </li>
-            </ul>
-        </section>
-        <section id="update">
-            <div class="page-header">
-                <h3>SOFTWARE UPDATE</h3>
-                <hr class="notop">
-            </div>
-            <h2><strong>UPDATE with Existing Data</strong></h2>
-            <p>You can update the software very easily by following 4 steps:</p>
-            <ul>
-                <li>Rename your previous database like salepropos-backup.sql.</li>
-                <li>Delete the project folder and reinstall it</li>
-                <li>Merge your present database with previous one with <a href="https://www.red-gate.com/products/mysql/mysql-compare/index">MySQL Compare</a>. If you are a linux user you can use <a href="https://www.navicat.com/en/">Navicat</a> to merge database.</li>
-                <li>After that delete the new database and rename the previous one with present database name like salepropos-backup.sql to salepropos.sql.</li>
-            </ul>
-            <p><strong>Please follow the following spanshots carefully to merge database:</strong></p>
-            <p>Open the software.</p>
-            <p>
-                <img alt="" src="assets/images/update1.png">
-            </p>
-            <p>Select your source and target database and click compare now.</p>
-            <p>
-                <img alt="" src="assets/images/update2.png">
-            </p>
-            <p>After comparing successfully two database click ok.</p>
-            <p>
-                <img alt="" src="assets/images/update3.png">
-            </p>
-            <p>Then select the checkbox and click Diployment Wizard.</p>
-            <p>
-                <img alt="" src="assets/images/update4.png">
-            </p>
-            <p>Uncheck the Recompare after deployment checkbox and click next.</p>
-            <p>
-                <img alt="" src="assets/images/update5.png">
-            </p>
-            <p>Click Deploy now.</p>
-            <p>
-                <img alt="" src="assets/images/update6.png">
-            </p>
-            <p>Click Ok.</p>
-            <p>
-                <img alt="" src="assets/images/update7.png">
-            </p>
-            <p>Thats all! You have just updated the database. Now follow step 4 as we described earlier.</p>
-            <h2><strong>UPDATE without Existing Data</strong></h2>
-            <p>You can update the software very easily by following 2 steps:</p>
-            <ul>
-                <li>Delete your previous database it.</li>
-                <li>Delete the project folder and reinstall it</li>
-            </ul>
-            <p><strong>Still facing problem? Don't worry! We can update your software for USD 10. Please contact us at <a href="mailto:support@lion-coders.com">support@lion-coders.com</a>.</strong></p>
-        </section>
+
+
+
+
         <section id="pos-printer">
             <div class="page-header">
                 <h3>POS Printer Configuration</h3>
@@ -336,7 +216,7 @@
                 <img alt="" src="assets/images/category8.png">
             </p>
             <h2><strong>Product</strong></h2>
-            <p>In product section you will just add general information of a product. <strong>To add stock you have to purchase that product.</strong> You can create three types of product in SaleProPOS.</p>
+            <p>In product section you will just add general information of a product. <strong>To add stock you have to purchase that product.</strong> You can create three types of product in XiT InventoryPOS.</p>
             <ul>
                 <li>Standard</li>
                 <li>Digital</li>
@@ -563,7 +443,7 @@
                 <h3>Reports</h3>
                 <hr class="notop">
             </div>
-            <p>You can create generate various reports automatically by using SaleProPOS.</p>
+            <p>You can create generate various reports automatically by using XiT InventoryPOS.</p>
             <ul>
                 <li><strong>Profit / Loss Report</strong></li>
                 <li><strong>Best Seller Report</strong></li>
