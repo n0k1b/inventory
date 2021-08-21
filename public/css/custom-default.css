@@ -1011,6 +1011,9 @@ section.pos-section{
     .btn-pos{
         top:13px !important;
     }
+    nav.navbar .nav-item a i{
+        margin-right: 0px !important;
+    }
 }
 
 @media all and (min-width:576px){
