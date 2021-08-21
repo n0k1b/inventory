@@ -23,7 +23,7 @@
         @endif
     </div>
     <div class="table-responsive">
-        <table id="product-data-table" class="table" style="width: 100%">
+        <table id="product-data-table" class="table table-hover">
             <thead>
                 <tr>
                     <th class="not-exported"></th>
