@@ -730,7 +730,7 @@ nav.navbar .nav-item li.notifications a i{
 }
 
 .dt-button-collection.dropdown-menu {
-	background: #FBFBFB;
+	background: #bf0f0f;
 	padding: 10px 15px;
 }
 
@@ -761,7 +761,7 @@ nav.navbar .nav-item li.notifications a i{
 }
 
 .buttons-collection {
-	background: #FBFBFB;
+	background: #d20000 !important;
 	border: none;
 }
 
@@ -1001,15 +1001,6 @@ section.pos-section{
 }
 
 @media screen and (orientation: portrait){
-
-    @media all and (min-width:400px){
-
-
-        .dt-buttons{
-            left: 80px !important;
-        }
-
-    }
 
     .dt-buttons{
         width: 100%;
