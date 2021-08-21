@@ -25,7 +25,7 @@
     <!-- theme stylesheet-->
     <link rel="stylesheet" href="<?php echo asset('public/css/style.default.css') ?>" id="theme-stylesheet" type="text/css">
     <!-- Custom stylesheet - for your changes-->
-    <link rel="stylesheet" href="<?php echo asset('public/css/custom-'.$general_setting->theme) ?>" type="text/css">
+    <link rel="stylesheet" href="<?php echo asset('public/css/custom-'.$general_setting->theme.'?'.time()) ?>" type="text/css" id="custom-style">
     <!-- Tweaks for older IEs--><!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
         <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->

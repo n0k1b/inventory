@@ -68,6 +68,12 @@ nav.navbar a.menu-btn:hover {
     font-size: 2em;
 }
 
+input.input-material~label{
+    color:#6f6262 !important;
+}
+.input.input-material{
+    border-bottom: 1px solid black !important;
+}
 .gmpc {
     padding: 0 !important;
     width: 100% !important;
@@ -95,7 +101,7 @@ input.form-control-custom:checked+label::before {
 
 .login-page .logo span,
 .register-page .logo span {
-    color: #FBFBFB;
+    color: #C30700 !important;
 }
 
 .login-page a.forgot-pass,
@@ -103,13 +109,13 @@ input.form-control-custom:checked+label::before {
 .register-page a.forgot-pass,
 .register-page a.signup {
     font-size: 0.8em;
-    color: #FBFBFB;
+    color: #C30700 !important;
 }
 
 .btn-primary {
     color: color-yiq(#FBFBFB);
-    background-color: #FBFBFB;
-    border-color: #FBFBFB;
+    background-color: #C30700 !important;
+    border-color: #C30700 !important ;
 }
 
 .btn-primary.disabled,

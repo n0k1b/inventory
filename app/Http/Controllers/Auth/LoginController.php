@@ -1,10 +1,10 @@
 <?php
 
-  
+
 
 namespace App\Http\Controllers\Auth;
 
-  
+
 
 use App\Http\Controllers\Controller;
 
@@ -12,17 +12,17 @@ use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
 use Illuminate\Http\Request;
 
-  
+
 
 class LoginController extends Controller
 
 {
 
-  
+
 
     use AuthenticatesUsers;
 
-    
+
 
     protected $redirectTo = '/';
 
@@ -44,7 +44,7 @@ class LoginController extends Controller
 
     }
 
-  
+
 
     /**
 
@@ -58,7 +58,7 @@ class LoginController extends Controller
 
     public function login(Request $request)
 
-    {   
+    {
 
         $input = $request->all();
 
@@ -70,7 +70,7 @@ class LoginController extends Controller
 
         ]);
 
-  
+
 
         $fieldType = filter_var($request->name, FILTER_VALIDATE_EMAIL) ? 'email' : 'name';
 
@@ -88,7 +88,7 @@ class LoginController extends Controller
 
         }
 
-          
+
 
     }
 
