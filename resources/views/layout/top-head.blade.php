@@ -183,7 +183,7 @@
 
 
           function myFunction() {
-              alert('hello')
+
               setTimeout(showPage, 150);
               if ($(window).width() < 700) {
         $('.side-navbar').addClass('shrink');
