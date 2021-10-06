@@ -853,7 +853,9 @@
                   <?php if($tax_permission_active): ?>
                   <li id="tax-menu"><a href="<?php echo e(route('tax.index')); ?>"><?php echo e(trans('file.Tax')); ?></a></li>
                   <?php endif; ?>
+                  <?php if($user_index_permission_active): ?>
                   <li id="user-menu"><a href="<?php echo e(route('user.profile', ['id' => Auth::id()])); ?>"><?php echo e(trans('file.User Profile')); ?></a></li>
+                  <?php endif; ?>
                   <?php if($create_sms_permission_active): ?>
                   <li id="create-sms-menu"><a href="<?php echo e(route('setting.createSms')); ?>"><?php echo e(trans('file.Create SMS')); ?></a></li>
                   <?php endif; ?>

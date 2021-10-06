@@ -172,7 +172,7 @@ a {
 .page-item.active .page-link {
     color: black;
     background-color: #FBFBFB;
-    border-color: #FBFBFB;
+    border-color: #C30700;
 }
 
 .page-link {
@@ -187,7 +187,7 @@ a {
 .dropdown-item.active,
 .dropdown-item:active {
     color: #fff;
-    background-color: #FBFBFB;
+    background-color: #C30700;
 }
 
 .bg-primary {
@@ -1046,7 +1046,7 @@ section.pos-section{
 }
 
 .checkbox label::after {
-    color: #FBFBFB;
+    color: #C30700;
 }
 
 table.dataTable tbody > tr.selected, table.dataTable tbody > tr > .selected {

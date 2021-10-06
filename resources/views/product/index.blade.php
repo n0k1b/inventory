@@ -23,7 +23,7 @@
         @endif
     </div>
     <div class="table-responsive">
-        <table id="product-data-table" class="table table-hover">
+        <table id="product-data-table" class="table" style="width: 100%">
             <thead>
                 <tr>
                     <th class="not-exported"></th>
@@ -294,7 +294,7 @@
 
     $(document).ready(function() {
         var table = $('#product-data-table').DataTable( {
-            responsive: true,
+            responsive: false,
             fixedHeader: {
                 header: true,
                 footer: true

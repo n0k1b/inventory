@@ -298,7 +298,7 @@
 
     $(document).ready(function() {
         var table = $('#product-data-table').DataTable( {
-            responsive: true,
+            responsive: false,
             fixedHeader: {
                 header: true,
                 footer: true
